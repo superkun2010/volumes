@@ -28,6 +28,14 @@ function rectangular () {
 	return volumeRectangular;
 };
 
+if (coneHeight <= rectLength && coneHeight <= rectHeight && coneBase <= rectWidth) {
+	console.log ("The cone fits in the rectangle!");
+} else if (coneHeight <= rectLength && coneHeight <= rectWidth && coneBase <= rectHeight){
+	console.log ("The cone fits in the rectangle!");
+} else	{
+	console.log ("The cone doesn't fit in the rectangle!");
+};
+
 sphere();
 cone();
 rectangular();
