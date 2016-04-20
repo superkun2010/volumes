@@ -13,6 +13,9 @@ var	volumeSphere = "";
 var volumeCone = "";
 var volumeRectangular = "";
 
+var coneBaseRadius = coneBase / 2;
+var sqrtMSqPlusHSq = Math.sqrt((Math.pow(coneBaseRadius,2)) + (Math.pow(coneHeight,2)));
+
 function sphere () {
 	volumeSphere = ( 4 / 3 ) * pi * Math.pow(sphereRadius,3); 
 	return volumeSphere;
@@ -36,10 +39,12 @@ if (coneHeight <= rectLength && coneHeight <= rectHeight && coneBase <= rectWidt
 	console.log ("The cone doesn't fit in the rectangle!");
 };
 
+if (sphereRadius <= (((coneHeight * coneBaseRadius) / sqrtMSqPlusHSq) / (1 + (coneBaseRadius)/(sqrtMSqPlusHSq)))) {
+	console.log ("The sphere fits in the cone!");
+} else {
+	console.log ("The sphere does not fit the cone!");
+};
+
 sphere();
 cone();
 rectangular();
-
-console.log (volumeSphere);
-console.log	(volumeCone);
-console.log	(volumeRectangular);
